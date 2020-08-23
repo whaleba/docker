@@ -1,0 +1,37 @@
+очистить место
+C:\Users\iUser\AppData\Local\Docker\wsl\data
+https://github.com/microsoft/WSL/issues/4699
+
+powershell
+
+
+wsl --shutdown
+diskpart
+# open window Diskpart
+select vdisk file="C:\WSL-Distros\Е\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+
+wsl --shutdown
+optimize-vhd -Path .\ext4.vhdx -Mode full
+
+
+
+add - скачать архив и распоковать его сазу    –есурсы с удаленных URL не распаковываютс€. 
+https://ivan.bessarabov.ru/blog/what-is-the-difference-between-add-and-copy-in-dockerfile
+
+”даление всех закрытых контейнеров
+docker rm $(docker ps -a -f status=exited -q)
+
+”даление всех образов
+docker rmi $(docker images -a -q)
+
+
+
+
+
+
+
+
